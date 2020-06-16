@@ -4,18 +4,20 @@ import './App.css';
 
 function App() {
   return (
-   
-    <p> Hello there evie </p>
 
+    <p> Hello there evie </p>
+    <button
+      onPress={()=> {console.log("aagh")}}
+      title="Solve"
+      color="#841584"
+      accessibilityLabel="We out here solving"
+      >
+      
+    </button>
 
   );
 }
 
-<Button
-  onPress={<p> you clicked solve but I wont lol </p>}
-  title="Solve"
-  color="#841584"
-  accessibilityLabel="We out here solving"
-/>
+
 
 export default App;
