@@ -12,7 +12,7 @@ function App() {
 }
 
 <Button
-  onPress={}
+  onPress={<p> you clicked solve but I wont lol </p>}
   title="Solve"
   color="#841584"
   accessibilityLabel="We out here solving"
