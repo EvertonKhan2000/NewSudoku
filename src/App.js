@@ -4,9 +4,9 @@ import './App.css';
 
 function App() {
   return (
-    <div>
-      <p> Hello there evie boobobobobo</p>
-      <button class = "button1"
+    <div class = "idk">
+      <p class = "Title"> Soduku Solver</p>
+      <button class = "solvebutton"
 
         
 
