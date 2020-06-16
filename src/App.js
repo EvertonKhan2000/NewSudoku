@@ -6,9 +6,9 @@ function App() {
   return (
     <div>
       <p> Hello there evie boobobobobo</p>
-      <button
+      <button class = "button1"
 
-
+        
 
         onClick={() => { console.log("aagh") }}
         title="Solve"
