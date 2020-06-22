@@ -24,6 +24,19 @@ function App() {
   );
 }
 
+// takes a number and checks if it is a provided list and returns true or false depending on the answer
+function numberCheck(list, number) {
 
+  let check = false;
+  let i;
+
+  for (i = 0; i < list.length; i++) {
+    if (number == list[i]) {
+      check = true;
+      break;
+    }
+  }
+  return check;
+}
 
 export default App;
