@@ -1,16 +1,25 @@
 .App {
   text-align: center;
 }
+.container {
+  height:100%;
+  width:1810px;
+  border: 1px solid black;
+}
 
 .inputs {
-  display: flex; /* or inline-flex */
-  flex-wrap: wrap;
+  display: flex;
+  font-size: 0;
+  flex-wrap:wrap;
+  margin:-10px 0 0 -10px;
 }
 .box {
-  height:400px;
+  display: inline-block;
+  margin:10px 0 0 10px;
+  flex-grow: 1;
+  height:400px;    
   width: 400px;
-  font-size: 104pt;
-  text-align: center
+  font-size: 360px;
   
 }
 

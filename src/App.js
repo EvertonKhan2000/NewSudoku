@@ -1,19 +1,21 @@
-import React from 'react';
+import React, { useState, useRef  } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import { YourComponent } from './LoopingTxt';
 
 function App() {
+
+  const [values, setValues] = useState({list: [[null, null, null, null],[null, null, null, null],[null, null, null, null],[null, null, null, null]
+  ]});
+
   return (
 <div>
 
     <p class = "Title"> Soduku Solver</p>
-    <div id = "container">
-    <YourComponent/>
+    <div class = "container">
+    <YourComponent setter = {setValues} values = {values}/>
     </div>
-      <button class = "solvebutton"
-
-        
+      <button class = "solvebutton"  
 
         onClick={() => { console.log("aagh") }}
         title="Solve"
