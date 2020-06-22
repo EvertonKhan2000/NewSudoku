@@ -1,11 +1,15 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { YourComponent } from './LoopingTxt';
 
 function App() {
   return (
 <div>
-    <p> Hello there evie </p>
+    <p> Auto Suduko </p>
+    <div id = "container">
+    <YourComponent/>
+    </div>
     <button
 
     
