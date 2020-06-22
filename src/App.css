@@ -1,6 +1,38 @@
 .App {
   text-align: center;
 }
+.container {
+  height:100%;
+  width:1810px;
+  border: 1px solid black;
+}
+
+.inputs {
+  display: flex;
+  font-size: 0;
+  flex-wrap:wrap;
+  margin:-10px 0 0 -10px;
+}
+.box {
+  display: inline-block;
+  margin:10px 0 0 10px;
+  flex-grow: 1;
+  height:400px;    
+  width: 400px;
+  font-size: 360px;
+  
+}
+
+
+div > div:nth-child(n+5):nth-last-child(n+9){
+  border-bottom: 5px solid black;
+}
+
+div > div:nth-child(4n-2){
+  border-right: 5px solid black;
+}
+
+
 
 body {
   background-color: coral;
