@@ -6,20 +6,25 @@ import { YourComponent } from './LoopingTxt';
 function App() {
   return (
 <div>
-    <p> Auto Suduko </p>
+
+    <p class = "Title"> Soduku Solver</p>
     <div id = "container">
     <YourComponent/>
     </div>
-    <button
+      <button class = "solvebutton"
 
-    
+        
 
-      onPress={() => { console.log("aagh") }}
-      title="Solve"
-      color="#841584"
-      accessibilityLabel="We out here solving"
->
-    </button>
+        onClick={() => { console.log("aagh") }}
+        title="Solve"
+        color="#841584"
+        accessibilityLabel="We out here solving"
+      >
+
+        solve
+      </button>
+
+ 
 
     </div>
 

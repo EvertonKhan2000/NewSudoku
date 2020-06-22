@@ -25,6 +25,9 @@ div > div:nth-child(4n-2){
 
 
 
+body {
+  background-color: coral;
+}
 
 .App-logo {
   height: 40vmin;
@@ -50,6 +53,35 @@ div > div:nth-child(4n-2){
 
 .App-link {
   color: #61dafb;
+}
+
+/* css for the solve button */
+.solvebutton {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  margin-right: auto;
+  margin-left: auto;
+  min-height: 1em;
+  width: 5%;
+}
+
+.Title {
+  background-color: #282c34;
+  color: white;
+  position: fixed;
+  bottom: 1;
+  right: 0;
+  left: 0;
+  margin-right: auto;
+  margin-left: auto;
+  min-height: 1em;
+  width: 8%;
+}
+
+.idk {
+  background-color: #282c34;
 }
 
 @keyframes App-logo-spin {
