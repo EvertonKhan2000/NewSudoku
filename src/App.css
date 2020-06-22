@@ -2,6 +2,30 @@
   text-align: center;
 }
 
+.inputs {
+  display: flex; /* or inline-flex */
+  flex-wrap: wrap;
+}
+.box {
+  height:400px;
+  width: 400px;
+  font-size: 104pt;
+  text-align: center
+  
+}
+
+
+div > div:nth-child(n+5):nth-last-child(n+9){
+  border-bottom: 5px solid black;
+}
+
+div > div:nth-child(4n-2){
+  border-right: 5px solid black;
+}
+
+
+
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
