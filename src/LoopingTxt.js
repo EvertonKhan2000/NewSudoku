@@ -66,7 +66,7 @@ export class YourComponent extends React.Component {
               value={this.state.values[i]}
               name={this.state.values[i]}
               onChange={this.handleChange.bind(this, i)} />
-          </label>
+          </label> 
         </div>
       );
     }
