@@ -111,7 +111,7 @@ function numberCheck(testType, whereNo, whichNo) {
   }
   if (testType == 'box') {
     if (boxCheck(testMatrix, whereNo, whichNo)) {
-      break;
+     // break;
     }
 
 
