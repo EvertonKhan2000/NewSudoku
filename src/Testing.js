@@ -43,10 +43,10 @@ function colCheck(list, column, number) {
 
 function boxCheck(list, whichBox, number) {
     // from base col 0 is the box to the right? by how many boxes?
-    let columnPad = (size - (whichbox % size));
+    let columnPad = (size - (whichBox % size));
 
     // eliminating hangovers in an incomplete row, is the box down from row 0? by how many boxes?
-    let rowPad = (whichbox - (whichbox % size) / size);
+    let rowPad = (whichBox - (whichBox % size) / size);
 
     let baseRow = 0, baseCol = 0;
 
@@ -84,7 +84,7 @@ function whichBox(whereRowY, whereColX) {
 
     // box row Y
     for (i = 0; i < size; i++) {
-        if ((whereRowX - size) < 1) {
+        if ((whereRowY - size) < 1) {
             boxRow = i + 1;
         }
     }
@@ -122,7 +122,7 @@ export function numberCheck(Matrix, whichNo, whereRowY, whereColX) {
     let check = false;
 
     if (rowCheck(Matrix, whichNo)) {
-        if (colCheck(Matrix, whereNo, whichNo)) {
+        if (colCheck(Matrix, whereColX, whichNo)) {
             if (boxCheck(Matrix, whichBox(whereRowY,whereColX), whichNo)) {
                 check = true;
             }
