@@ -96,6 +96,18 @@ function boxCheck(list, whichBox, number) {
 }
 
 
+    // box row Y
+    for (i = 0; i < size; i++) {
+        if ((whereRowY - size) < 1) {
+            boxRow = i + 1;
+        }
+    }
+
+    //which box
+    box = (boxRow - 1) * size + boxCol;
+
+    return box;
+}
 
 // old and stinky
 /*// takes a no. (whichNo), checks if it is already in the row, col, or box (testType) specified (whereNo)
@@ -124,7 +136,7 @@ export function numberCheck(Matrix, whichNo, whereRowY, whereColX) {
     let check = false;
 
     if (rowCheck(Matrix, whichNo)) {
-        if (colCheck(Matrix, whereNo, whichNo)) {
+        if (colCheck(Matrix, whereColX, whichNo)) {
             if (boxCheck(Matrix, whichBox(whereRowY,whereColX), whichNo)) {
                 check = true;
             }
