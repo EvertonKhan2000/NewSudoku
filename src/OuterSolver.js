@@ -1,14 +1,14 @@
 import React, { useState, useRef } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import { YourComponent } from './LoopingTxt';
+import { numberCheck } from './Testing';
 
 function innerSolve(list) {
     for (row in values) {
       for (item in row) {
         if (item === null) {
           for (let num = 1; num++; num <= values.length) {
-            if (true) {
+            if (numberCheck(list, num, row, item)) {
               list[row][item] = num;
               innerSolve()
               list[row][item] = 0
@@ -24,7 +24,7 @@ function innerSolve(list) {
   
   }
   
-  function SmartSolve(values) {
+  export function SmartSolve(values) {
   
     let list = values;
   
