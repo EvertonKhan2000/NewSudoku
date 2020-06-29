@@ -63,6 +63,7 @@ function boxCheck(list, whichBox, number) {
         for (x = 0; x < size; x++) {
             if (number == list[baseRow + i][baseCol + x]) {
                 check = true;
+                // can't use break, figure out more efficient way
                 break;
             }
         }
