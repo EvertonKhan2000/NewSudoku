@@ -17,7 +17,7 @@ function rowCheck(list, row, number) {
     for (i = 0; i < list[row].length; i++) {
         if (number == list[i]) {
             check = false;
-            //break;
+            break;
         }
     }
     return check;
@@ -34,7 +34,7 @@ function colCheck(list, column, number) {
     for (i = 0; i < length; i++) {
         if (number == list[i][column]) {
             check = false;
-            //break;
+            break;
         }
     }
     return check;
@@ -63,7 +63,8 @@ function boxCheck(list, whichBox, number) {
         for (x = 0; x < size; x++) {
             if (number == list[baseRow + i][baseCol + x]) {
                 check = true;
-                //break;
+                // can't use break, figure out more efficient way
+                break;
             }
         }
         return check;
@@ -95,9 +96,27 @@ function whichBox(whereRowY, whereColX) {
 }
 
 // old and stinky
+/*// takes a no. (whichNo), checks if it is already in the row, col, or box (testType) specified (whereNo)
+function numberCheck(testType, whereNo, whichNo) {
+  if (testType == 'row') {
+    if (rowCheck(testMatrix[whereNo], whichNo)) {
+      break;
+    }
+
+  }
+  if (testType == 'col') {
+    if (colCheck(testMatrix, whereNo, whichNo)) {
+      break;
+    }
+
+  }
+  if (testType == 'box') {
+    if (boxCheck(testMatrix, whereNo, whichNo)) {
+     // break;
+    }
 
 
-
+*/
 // takes a no. (whichNo), checks if it is already in the row, col, or box specified (whereNo)
 export function numberCheck(Matrix, whichNo, whereRowY, whereColX) {
     let check = false;

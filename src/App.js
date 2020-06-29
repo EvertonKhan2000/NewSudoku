@@ -4,7 +4,6 @@ import './App.css';
 import { YourComponent } from './LoopingTxt';
 import { SmartSolve } from './OuterSolver';
 
-
 function App() {
 
   const [values, setValues] = useState({
