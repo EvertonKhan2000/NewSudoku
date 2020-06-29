@@ -9,6 +9,30 @@ let testMatrix = [[1, 2, 3, 4],
 [2, 3, 4, 1],
 [4, 1, 2, 3]]
 
+// converts x / y to corresponding 'box' relative to size of grid
+function whichBox(whereRowY, whereColX) {
+    let i, boxRow, boxCol, box;
+
+    // box column X
+    for (i = 0; i < size; i++) {
+        if ((whereColX - size) < 1) {
+            boxCol = i + 1;
+        }
+    }
+
+    // box row Y
+    for (i = 0; i < size; i++) {
+        if ((whereRowX - size) < 1) {
+            boxRow = i + 1;
+        }
+    }
+
+    //which box
+    box = (boxRow - 1) * size + boxCol;
+
+    return box;
+}
+
 // takes a number and checks if it is a provided list and returns true or false depending on the answer
 // for checking rows
 function rowCheck(list, row, number) {
@@ -43,10 +67,10 @@ function colCheck(list, column, number) {
 
 function boxCheck(list, whichBox, number) {
     // from base col 0 is the box to the right? by how many boxes?
-    let columnPad = (size - (whichbox % size));
+    let columnPad = (size - (whichBox % size));
 
     // eliminating hangovers in an incomplete row, is the box down from row 0? by how many boxes?
-    let rowPad = (whichbox - (whichbox % size) / size);
+    let rowPad = (whichBox - (whichBox % size) / size);
 
     let baseRow = 0, baseCol = 0;
 
@@ -71,29 +95,7 @@ function boxCheck(list, whichBox, number) {
     }
 }
 
-// converts x / y to corresponding 'box' relative to size of grid
-function whichBox(whereRowY, whereColX) {
-    let i, boxRow, boxCol, box;
 
-    // box column X
-    for (i = 0; i < size; i++) {
-        if ((whereColX - size) < 1) {
-            boxCol = i + 1;
-        }
-    }
-
-    // box row Y
-    for (i = 0; i < size; i++) {
-        if ((whereRowX - size) < 1) {
-            boxRow = i + 1;
-        }
-    }
-
-    //which box
-    box = (boxRow - 1) * size + boxCol;
-
-    return box;
-}
 
 // old and stinky
 /*// takes a no. (whichNo), checks if it is already in the row, col, or box (testType) specified (whereNo)
