@@ -138,6 +138,7 @@ function whichBox(whereRowY, whereColX) {
 // takes a no. (whichNo), checks if it is already in the row, col, or box specified (whereNo)
 export function numberCheck(Matrix, whichNo, whereRowY, whereColX) {
     let check = false;
+    if (whichNo < 1 || whichNo > size * size ) console.log('whoopsy daisy bubba');
     console.log(whichNo)
 
     if (rowCheck(Matrix,whereRowY, whichNo)) {
