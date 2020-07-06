@@ -3,11 +3,28 @@
 
 // maybe allow user to change size of the grid they want?
 // box width i.e. 2 (rows / cols / boxes are 2 ^ 2)
+
 const size = 2;
-let testMatrix = [[1, 2, 3, 4],
+
+/* let testMatrix = [[1, 2, 3, 4],
 [3, 4, 1, 2],
 [2, 3, 4, 1],
-[4, 1, 2, 3]]
+[4, 1, 2, 3]] */
+
+let testMatrix = [
+[null, 2, 3, null],
+[3, null, null, null],
+[2, null, null, null],
+[null, null, null, null]
+]
+
+
+let testRow = [[1, 2, 3, 4]]
+
+let testColumn = [[1],
+[3],
+[2],
+[4]]
 
 // takes a number and checks if it is a provided list and returns true or false depending on the answer
 // for checking rows
