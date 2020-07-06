@@ -58,7 +58,7 @@ function boxCheck(list, whichBox, number) {
     console.log(whichBox);
 
 
-    baseCol += columnPad * size - size;
+    baseCol += columnPad * size;
     baseRow += rowPad * size;
 
     let check = true;
