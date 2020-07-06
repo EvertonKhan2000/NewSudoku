@@ -72,6 +72,9 @@ function boxCheck(list, whichBox, number) {
     let baseRow = 0, baseCol = 0;
 
     // variables for searching from the top left coord in a box, adjusted for box size
+    console.log(whichBox);
+
+
     baseCol += columnPad * size;
     baseRow += rowPad * size;
 
@@ -79,9 +82,16 @@ function boxCheck(list, whichBox, number) {
     let i, x;
 
     //row
-    for (i = 0; i < size; i++) {
+    for (let i = 0; i < size; i++) {
         //column
-        for (x = 0; x < size; x++) {
+        for (let x = 0; x < size; x++) {
+            console.log(baseRow);
+            console.log(baseCol);
+            console.log(i);
+            console.log(x);
+            console.log(list);
+            console.log(list[baseRow + i][baseCol + x]);
+
             if (number == list[baseRow + i][baseCol + x]) {
                 check = false;
 
@@ -116,6 +126,9 @@ function whichBox(whereRowY, whereColX) {
     }
     boxCol = colAdj / size;
 
+    console.log(boxCol)
+    console.log(whereRowY)
+
     //which box
     box = boxRow + boxCol;
 
@@ -125,6 +138,7 @@ function whichBox(whereRowY, whereColX) {
 // takes a no. (whichNo), checks if it is already in the row, col, or box specified (whereNo)
 export function numberCheck(Matrix, whichNo, whereRowY, whereColX) {
     let check = false;
+    console.log(whichNo)
 
     if (rowCheck(Matrix,whereRowY, whichNo)) {
         console.log('row');

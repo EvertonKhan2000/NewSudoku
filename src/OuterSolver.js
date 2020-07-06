@@ -4,19 +4,24 @@ import './App.css';
 import { numberCheck } from './Testing';
 
 function innerSolve(list) {
-    for (row in values) {
-      for (item in row) {
-        if (item === null) {
-          for (let num = 1; num++; num <= values.length) {
-            if (numberCheck(list, num, row, item)) {
-              list[row][item] = num;
-              innerSolve()
-              list[row][item] = 0
+    for (let row in list.list) {
+      
+      for (let item in list.list[row]) {
+        if (list.list[row][item] === null) {
+          for (let num = 1; num++; num <= 4) {
+            console.log(list.list.length)
+            if (numberCheck(list.list, num, row, item)) {
+              list.list[row][item] = num;
+              innerSolve(list)
+              list.list[row][item] = null;
             }
           }
         }
       }
     }
+
+    console.log(list);
+    return list;
   }
   
   function ValidSolverCheck(){
@@ -27,11 +32,12 @@ function innerSolve(list) {
   export function SmartSolve(values) {
   
     let list = values;
-  
-    innerSolve();
-    setValues(list);
+
+
+    return innerSolve(list);
   }
   
+  /*
   function innerDumbSolve(list) {
   
     for (row in values) {
@@ -64,4 +70,5 @@ function innerSolve(list) {
     innerDumbSolve();
     setValues(list);
   }
+  */
   
