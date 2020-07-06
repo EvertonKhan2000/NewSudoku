@@ -15,11 +15,9 @@ function rowCheck(list, row, number) {
     let i, check = true;
 
     for (i = 0; i < list[row].length; i++) {
-        console.log(number);
-        console.log(list[i]);
-
         if (number == list[row][i]) {
             check = false;
+            //console.log('row goteem ', number, ' = ', list[row]);
             break;
         }
     }
@@ -46,11 +44,13 @@ function colCheck(list, column, number) {
 
 function boxCheck(list, whichBox, number) {
     // from base col 0 is the box to the right? by how many boxes?
-    let columnPad = (size - (whichBox % size));
-    console.log(size);
+    let columnPad = ((size - (whichBox % size) - 1)), placeHolder = whichBox;
 
     // eliminating hangovers in an incomplete row, is the box down from row 0? by how many boxes?
-    let rowPad = (whichBox - (whichBox % size) / size);
+    if ((placeHolder % size) != 0) {
+        placeHolder += (placeHolder % size);
+    }
+    let rowPad = (placeHolder / size - 1);
 
     let baseRow = 0, baseCol = 0;
 
@@ -61,7 +61,7 @@ function boxCheck(list, whichBox, number) {
     baseCol += columnPad * size - size;
     baseRow += rowPad * size;
 
-    let check = false;
+    let check = true;
     let i, x;
 
     //row
@@ -76,68 +76,59 @@ function boxCheck(list, whichBox, number) {
             console.log(list[baseRow + i][baseCol + x]);
 
             if (number == list[baseRow + i][baseCol + x]) {
-                check = true;
-                // can't use break, figure out more efficient way
+                check = false;
+
+                //end loop
                 break;
             }
         }
-        return check;
+
+        //stop unnecessary looping
+        if (check == false) break;
     }
+    return check;
 }
 
 // converts x / y to corresponding 'box' relative to size of grid
 function whichBox(whereRowY, whereColX) {
-    let i, boxRow, boxCol, box;
+    let rowAdj, colAdj, boxRow, boxCol, box;
 
-    // box column X
-    for (i = 0; i < size; i++) {
-        if ((whereColX - size) < 1) {
-            boxCol = i;
-        }
-    }
+    // adjusting values to start at 1 not 0 do that the '(rowAdj % size) != 0' work properly
+    rowAdj = whereRowY + 1;
+    colAdj = whereColX + 1;
 
     // box row Y
-    for (i = 0; i < size; i++) {
-        if ((whereRowY - size) < 1) {
-            boxRow = i;
-        }
+    if ((rowAdj % size) != 0) {
+        rowAdj += (rowAdj % size);
     }
+    boxRow = rowAdj - size;
+
+    // box column X
+    if ((colAdj % size) != 0) {
+        colAdj += (colAdj % size);
+    }
+    boxCol = colAdj / size;
 
     console.log(boxCol)
     console.log(whereRowY)
 
     //which box
-    box = (boxRow - 1) * size + boxCol;
+    box = boxRow + boxCol;
 
     return box;
 }
 
-// old and stinky
-/*// takes a no. (whichNo), checks if it is already in the row, col, or box (testType) specified (whereNo)
-function numberCheck(testType, whereNo, whichNo) {
-  if (testType == 'row') {
-    if (rowCheck(testMatrix[whereNo], whichNo)) {
-      break;
-    }
-  }
-  if (testType == 'col') {
-    if (colCheck(testMatrix, whereNo, whichNo)) {
-      break;
-    }
-  }
-  if (testType == 'box') {
-    if (boxCheck(testMatrix, whereNo, whichNo)) {
-     // break;
-    }
-*/
 // takes a no. (whichNo), checks if it is already in the row, col, or box specified (whereNo)
 export function numberCheck(Matrix, whichNo, whereRowY, whereColX) {
     let check = false;
     console.log(whichNo)
 
-    if (rowCheck(Matrix, whereRowY, whichNo)) {
+    if (rowCheck(Matrix,whereRowY, whichNo)) {
+        console.log('row');
         if (colCheck(Matrix, whereColX, whichNo)) {
-            if (boxCheck(Matrix, whichBox(whereRowY,whereColX), whichNo)) {
+            console.log('col');
+            if (boxCheck(Matrix, whichBox(whereRowY, whereColX), whichNo)) {
+                console.log('box');
                 check = true;
             }
         }
