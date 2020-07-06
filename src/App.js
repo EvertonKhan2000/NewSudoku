@@ -20,7 +20,8 @@ function App() {
       </div>
       <button class="solvebutton"
 
-        onClick={SmartSolve(values)}
+        onClick={() => {setValues(SmartSolve(values))
+        console.log(values)}}
         title="Solve"
         color="#841584"
         accessibilityLabel="We out here solving"
