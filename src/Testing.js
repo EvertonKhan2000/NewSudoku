@@ -3,11 +3,28 @@
 
 // maybe allow user to change size of the grid they want?
 // box width i.e. 2 (rows / cols / boxes are 2 ^ 2)
+
 const size = 2;
-let testMatrix = [[1, 2, 3, 4],
+
+/* let testMatrix = [[1, 2, 3, 4],
 [3, 4, 1, 2],
 [2, 3, 4, 1],
-[4, 1, 2, 3]]
+[4, 1, 2, 3]] */
+
+let testMatrix = [
+[null, 2, 3, null],
+[3, null, null, null],
+[2, null, null, null],
+[null, null, null, null]
+]
+
+
+let testRow = [[1, 2, 3, 4]]
+
+let testColumn = [[1],
+[3],
+[2],
+[4]]
 
 // takes a number and checks if it is a provided list and returns true or false depending on the answer
 // for checking rows
@@ -44,7 +61,8 @@ function colCheck(list, column, number) {
 
 function boxCheck(list, whichBox, number) {
     // from base col 0 is the box to the right? by how many boxes?
-    let columnPad = ((size - (whichBox % size) - 1)), placeHolder = whichBox;
+    let columnPad = ((size - (whichBox % size) - 1));
+    let placeHolder = whichBox;
 
     // eliminating hangovers in an incomplete row, is the box down from row 0? by how many boxes?
     if ((placeHolder % size) != 0) {
@@ -55,7 +73,8 @@ function boxCheck(list, whichBox, number) {
     let baseRow = 0, baseCol = 0;
 
     // variables for searching from the top left coord in a box, adjusted for box size
-    console.log(whichBox);
+
+
 
 
     baseCol += columnPad * size;
@@ -68,12 +87,7 @@ function boxCheck(list, whichBox, number) {
     for (let i = 0; i < size; i++) {
         //column
         for (let x = 0; x < size; x++) {
-            console.log(baseRow);
-            console.log(baseCol);
-            console.log(i);
-            console.log(x);
-            console.log(list);
-            console.log(list[baseRow + i][baseCol + x]);
+
 
             if (number == list[baseRow + i][baseCol + x]) {
                 check = false;
@@ -94,8 +108,10 @@ function whichBox(whereRowY, whereColX) {
     let rowAdj, colAdj, boxRow, boxCol, box;
 
     // adjusting values to start at 1 not 0 do that the '(rowAdj % size) != 0' work properly
-    rowAdj = whereRowY + 1;
+    rowAdj = (whereRowY).valueOf() + 1;
     colAdj = whereColX + 1;
+
+    console.log(colAdj)
 
     // box row Y
     if ((rowAdj % size) != 0) {
@@ -109,8 +125,7 @@ function whichBox(whereRowY, whereColX) {
     }
     boxCol = colAdj / size;
 
-    console.log(boxCol)
-    console.log(whereRowY)
+
 
     //which box
     box = boxRow + boxCol;
@@ -121,14 +136,11 @@ function whichBox(whereRowY, whereColX) {
 // takes a no. (whichNo), checks if it is already in the row, col, or box specified (whereNo)
 export function numberCheck(Matrix, whichNo, whereRowY, whereColX) {
     let check = false;
-    console.log(whichNo)
 
     if (rowCheck(Matrix,whereRowY, whichNo)) {
-        console.log('row');
+
         if (colCheck(Matrix, whereColX, whichNo)) {
-            console.log('col');
             if (boxCheck(Matrix, whichBox(whereRowY, whereColX), whichNo)) {
-                console.log('box');
                 check = true;
             }
         }

@@ -23,10 +23,10 @@ export class YourComponent extends React.Component {
           var newrow = row.map((item, k) => {
 
             if (k == (i % 4)) {
-              return this.state.value;
+              return parseInt(this.state.value);
             }
             else {
-              return item;
+              return  item;
             }
           });
 

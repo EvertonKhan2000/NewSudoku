@@ -3,26 +3,31 @@ import logo from './logo.svg';
 import './App.css';
 import { numberCheck } from './Testing';
 
-function innerSolve(list) {
-    for (let row in list.list) {
-      
-      for (let item in list.list[row]) {
-        if (list.list[row][item] === null) {
-          for (let num = 1; num++; num <= 4) {
-            console.log(list.list.length)
-            if (numberCheck(list.list, num, row, item)) {
-              list.list[row][item] = num;
-              innerSolve(list)
-              list.list[row][item] = null;
-            }
+function sodokoSolver(data) {
+  for (let i = 0; i < 4; i++) {
+    for (let j = 0; j < 4; j++) {
+      if (data[i][j] == null) {
+        for (let k = 1; k <= 4; k++) {
+          console.log(data);
+          console.log(i);
+          console.log(j);
+          console.log(k);
+          if (numberCheck(data, k, i, j)) {
+            data[i][j] = k;
+          if (sodokoSolver(data)) {
+           return true;
+          } else {
+           data[i][j] = null;
+           console.log('dumb')
           }
-        }
-      }
-    }
-
-    console.log(list);
-    return list;
-  }
+         }
+       }
+       return false;
+     }
+   }
+ }
+ return true;
+}  
   
   function ValidSolverCheck(){
   
@@ -34,7 +39,7 @@ function innerSolve(list) {
     let list = values;
 
 
-    return innerSolve(list);
+    return sodokoSolver(list.list);
   }
   
   /*
